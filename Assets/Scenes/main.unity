@@ -123,37 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &162420847
+--- !u!1 &162420847 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9133736707250273612, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+  m_PrefabInstance: {fileID: 9133736707361301795}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 162420848}
-  m_Layer: 0
-  m_Name: Emote Bubble
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &162420848
+--- !u!4 &162420848 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+  m_PrefabInstance: {fileID: 9133736707361301795}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162420847}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09406407, y: 0.3650333, z: -0.0059289457}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1171440341}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532930602
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,9 +377,10 @@ GameObject:
   - component: {fileID: 1171440341}
   - component: {fileID: 1171440340}
   - component: {fileID: 1171440342}
+  - component: {fileID: 1171440343}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,6 +473,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1171440343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171440339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e630168ef963e04989efead42012dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emoteBubblePrefab: {fileID: 162420847}
 --- !u!1 &1883179780
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +497,7 @@ GameObject:
   - component: {fileID: 1883179782}
   - component: {fileID: 1883179781}
   m_Layer: 0
-  m_Name: Flat Night 2 BG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,3 +570,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9133736707361301795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1171440341}
+    m_Modifications:
+    - target: {fileID: 9133736707250273612, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_Name
+      value: Emote Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273612, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273618, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: hungryIconSprite
+      value: 
+      objectReference: {fileID: 1598329264, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
+    - target: {fileID: 9133736707250273618, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: sleepyIconSprite
+      value: 
+      objectReference: {fileID: -1379227083, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0059289457
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133736707250273619, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 696eeb886e7f0d74a8aeabe59672dc4c, type: 3}

@@ -9,8 +9,8 @@ public class PetManager : MonoBehaviour
 
     // ENCAPSULATION
     [SerializeField] private GameObject _emoteBubblePrefab;
-    [SerializeField] private Animator _petAnimator;
-    [SerializeField] private NeedsController _needsScript;
+    private Animator _petAnimator;
+    private NeedsController _needsScript;
     private Mood _currentMood;
     public Mood CurrentMood
     { get { return _currentMood; } }
@@ -19,12 +19,10 @@ public class PetManager : MonoBehaviour
     // POLYMORPHISM
     void ChangeMood()
     {
-        if (_needsScript.Energy < 25)
-        {
-            ChangeMood(Mood.Sleepy);
-            _petAnimator.SetBool("isSleeping_b", true);
-        }
-        else _petAnimator.SetBool("isSleeping_b", false);
+        if (_needsScript.Energy < 25) ChangeMood(Mood.Sleepy);
+        if (_needsScript.Fun < 40) ChangeMood(Mood.Bored);
+        if (_needsScript.Health < 20) ChangeMood(Mood.Sick);
+        if (_needsScript.Hunger < 35) ChangeMood(Mood.Hungry);
     }
 
     void ChangeMood(Mood mood)
@@ -32,7 +30,7 @@ public class PetManager : MonoBehaviour
         _currentMood = mood;
     }
 
-    // END OF POLYMORPHISM
+    // end of POLYMORPHISM
 
     public static void Die()
     {
@@ -50,7 +48,7 @@ public class PetManager : MonoBehaviour
     {
         _petAnimator = GetComponent<Animator>();
         _needsScript = GetComponent<NeedsController>();
-        _currentMood = Mood.Sick;
+        _currentMood = Mood.Neutral;
     }
 
     // Update is called once per frame

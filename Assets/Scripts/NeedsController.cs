@@ -20,7 +20,7 @@ public class NeedsController : MonoBehaviour
 
 
     public void Initialize(int energy, int fun, int health, int hunger,
-        int funTickRate, int energyTickRate, int hungerTickRate, int healthTickRate)
+        int energyTickRate, int funTickRate, int hungerTickRate, int healthTickRate)
     {
         this.energy = energy;
         this.fun = fun;
@@ -40,7 +40,7 @@ public class NeedsController : MonoBehaviour
 
     private void Awake()
     {
-        Initialize(100, 100, 100, 100, 8, 3, 5, 2);
+        Initialize(100, 100, 100, 100, 1, 2, 5, 1);
     }
 
     // Update is called once per frame

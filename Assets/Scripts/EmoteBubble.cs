@@ -50,7 +50,7 @@ public class EmoteBubble : MonoBehaviour
             case PetManager.Mood.Happy:     return happyIconSprite;
             case PetManager.Mood.Hungry:    return hungryIconSprite;
             case PetManager.Mood.Scared:    return scaredIconSprite;
-            case PetManager.Mood.Sleepy:    return scaredIconSprite;
+            case PetManager.Mood.Sleepy:    return sleepyIconSprite;
             case PetManager.Mood.Sick:      return sickIconSprite;
         }
     }

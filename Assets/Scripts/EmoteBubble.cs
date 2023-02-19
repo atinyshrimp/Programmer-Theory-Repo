@@ -44,7 +44,7 @@ public class EmoteBubble : MonoBehaviour
     {
         switch (iconType)
         {
-            default:
+            default:                        return happyIconSprite;
             case PetManager.Mood.Angry:     return angryIconSprite;
             case PetManager.Mood.Bored:     return boredIconSprite;
             case PetManager.Mood.Happy:     return happyIconSprite;

@@ -9,12 +9,22 @@ public class PetManager : MonoBehaviour
 
     // ENCAPSULATION
     [SerializeField] private GameObject _emoteBubblePrefab;
+
     private Animator _petAnimator;
+    public Animator PetAnimator { get { return _petAnimator; } }
+
     private NeedsController _needsScript;
+
     private Mood _currentMood;
     public Mood CurrentMood
     { get { return _currentMood; } }
 
+    public void Sleep()
+    {
+        if (!_petAnimator.GetBool("isSleeping_b"))
+            _petAnimator.SetBool("isSleeping_b", true);
+        else _petAnimator.SetBool("isSleeping_b", false);
+    }
 
     // POLYMORPHISM
     void ChangeMood()
@@ -61,5 +71,4 @@ public class PetManager : MonoBehaviour
             DisplayBubble();
         }
     }
-
 }

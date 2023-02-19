@@ -4,42 +4,99 @@ using UnityEngine;
 public class NeedsController : MonoBehaviour
 {
     // ENCAPSULATION
-    [SerializeField] private int fun, energy, hunger, health;
-    public int Fun { get { return fun; } }
-    public int Energy { get { return energy; } }
-    public int Hunger { get { return hunger; } }
-    public int Health { get { return health; } }
+    [SerializeField] private int _fun, _energy, _hunger, _health;
+    public int Fun { get { return _fun; } }
+    public int Energy { get { return _energy; } }
+    public int Hunger { get { return _hunger; } }
+    public int Health { get { return _health; } }
 
-    private int funTickRate, energyTickRate, hungerTickRate, healthTickRate;
+    private PetManager _petManager;
 
-    private DateTime lastEntertained, lastFed, lastGainedEnergy, lastHealthy;
-    public DateTime LastEntertained { get { return lastEntertained; } }
-    public DateTime LastFed { get { return lastFed; } }
-    public DateTime LastGainedEnergy { get { return lastGainedEnergy; } }
-    public DateTime LastHealthy { get { return lastHealthy; } }
+    private int _funTickRate, _energyTickRate, _hungerTickRate, _healthTickRate;
+
+    private DateTime _lastEntertained, _lastFed, _lastGainedEnergy, _lastHealthy;
+    public DateTime LastEntertained { get { return _lastEntertained; } }
+    public DateTime LastFed { get { return _lastFed; } }
+    public DateTime LastGainedEnergy { get { return _lastGainedEnergy; } }
+    public DateTime LastHealthy { get { return _lastHealthy; } }
 
 
     public void Initialize(int energy, int fun, int health, int hunger,
         int energyTickRate, int funTickRate, int hungerTickRate, int healthTickRate)
     {
-        this.energy = energy;
-        this.fun = fun;
-        this.health = health;
-        this.hunger = hunger;
+        _energy = energy;
+        _fun = fun;
+        _health = health;
+        _hunger = hunger;
 
-        this.energyTickRate = energyTickRate;
-        this.funTickRate = funTickRate;
-        this.healthTickRate = healthTickRate;
-        this.hungerTickRate = hungerTickRate;
+        _energyTickRate = energyTickRate;
+        _funTickRate = funTickRate;
+        _healthTickRate = healthTickRate;
+        _hungerTickRate = hungerTickRate;
 
-        lastEntertained = DateTime.Now;
-        lastFed = DateTime.Now;
-        lastGainedEnergy = DateTime.Now;
-        lastHealthy = DateTime.Now;
+        _lastEntertained = DateTime.Now;
+        _lastFed = DateTime.Now;
+        _lastGainedEnergy = DateTime.Now;
+        _lastHealthy = DateTime.Now;
+    }
+
+    public void ChangeTickRate(string mode)
+    {
+        switch (mode)
+        {
+            case "energy":
+                if (_petManager.PetAnimator.GetBool("isSleeping_b"))
+                    _energyTickRate = -8;
+                else _energyTickRate = 1;
+                break;
+            case "fun":
+                _funTickRate = -_funTickRate;
+                break;
+            case "health":
+                _healthTickRate = -_healthTickRate;
+                break;
+            case "hunger":
+                _hungerTickRate = -_hungerTickRate;
+                break;
+        }
+    }
+
+    public void UpdateEnergy(int amount)
+    {
+        if (amount > 0) _lastGainedEnergy = DateTime.Now;
+
+        if (_energy > 0 && _energy <= 100)
+            _energy += amount;
+    }
+    public void UpdateFun(int amount)
+    {
+        if (amount > 0) _lastEntertained = DateTime.Now;
+
+        if (_fun > 0 && _fun <= 100)
+            _fun += amount;
+    }
+    public void UpdateHealth(int amount)
+    {
+        if (amount > 0) _lastHealthy = DateTime.Now;
+
+        if (_health > 0 && _health <= 100)
+            _health += amount;
+        else if (_health > 100)
+            _health = 100;
+        else PetManager.Die();
+    }
+
+    public void UpdateHunger(int amount)
+    {
+        if (amount > 0) _lastFed = DateTime.Now;
+
+        if (_hunger > 0 && _hunger <= 100)
+            _hunger += amount;
     }
 
     private void Awake()
     {
+        _petManager = GetComponent<PetManager>();
         Initialize(100, 100, 100, 100, 1, 2, 5, 1);
     }
 
@@ -48,45 +105,13 @@ public class NeedsController : MonoBehaviour
     {
         if (Timer.GameHourTimer < 0)
         {
-            updateEnergy(-energyTickRate);
-            updateFun(-funTickRate);
-            updateHealth(-healthTickRate);
-            updateHunger(-hungerTickRate);
+            UpdateEnergy(-_energyTickRate);
+            UpdateFun(-_funTickRate);
+            UpdateHealth(-_healthTickRate);
+            UpdateHunger(-_hungerTickRate);
         }
     }
 
 
-    public void updateEnergy(int amount)
-    {
-        if (amount > 0) lastGainedEnergy = DateTime.Now;
-
-        if (energy > 0 && energy <= 100)
-            energy += amount;
-    }
-    public void updateFun(int amount)
-    {
-        if (amount > 0) lastEntertained = DateTime.Now;
-
-        if (fun > 0 && fun <= 100)
-            fun += amount;
-    }
-    public void updateHealth(int amount)
-    {
-        if (amount > 0) lastHealthy = DateTime.Now;
-
-        if (health > 0 && health <= 100)
-            health += amount;
-        else if (health > 100)
-            health = 100;
-        else PetManager.Die();
-    }
-
-    public void updateHunger(int amount)
-    {
-        if (amount > 0) lastFed = DateTime.Now;
-
-        if (hunger > 0 && hunger <= 100)
-            hunger += amount;
-    }
 
 }

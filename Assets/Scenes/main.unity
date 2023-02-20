@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 54719033}
   - component: {fileID: 54719034}
   m_Layer: 5
-  m_Name: Fun bar
+  m_Name: Energy bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -3.349968, y: 0}
+  m_SizeDelta: {x: -16.700058, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &140250574
 GameObject:
@@ -938,8 +938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.0040894, y: 0.20679998}
-  m_SizeDelta: {x: 14.0082, y: -3.7222}
+  m_AnchoredPosition: {x: 2, y: 0.17500019}
+  m_SizeDelta: {x: 14, y: -3.6499996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466423369
 MonoBehaviour:
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.654902, g: 0.19215688, b: 0.19607845, a: 1}
+  m_Color: {r: 0.6627451, g: 0.19215688, b: 0.19607845, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1762,8 +1762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -4.2551, y: 0}
+  m_SizeDelta: {x: -18.5101, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1013093787
 GameObject:
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 1013093788}
   - component: {fileID: 1013093789}
   m_Layer: 5
-  m_Name: Energy bar
+  m_Name: Fun bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2243,10 +2243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12cdfa97671a9d4d9a4532516c0d2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fun: 100
-  energy: 100
-  hunger: 100
-  health: 100
+  _fun: 0
+  _energy: 0
+  _hunger: 0
+  _health: 0
 --- !u!114 &1171440345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,8 +2445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -3.3500004, y: 0}
+  m_SizeDelta: {x: -16.7, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1516268102
 GameObject:
@@ -2579,11 +2579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c45f8ec612c3d4bb6021dd43393b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energySlider: {fileID: 0}
-  _funSlider: {fileID: 0}
-  _healthSlider: {fileID: 0}
-  _hungerSlider: {fileID: 0}
-  _needsController: {fileID: 0}
+  _energySlider: {fileID: 54719034}
+  _funSlider: {fileID: 1013093789}
+  _healthSlider: {fileID: 580322213}
+  _hungerSlider: {fileID: 1830494191}
+  _petManager: {fileID: 1171440343}
 --- !u!1 &1600332941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,7 +3276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915192768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1524437047}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: Sleep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1915192768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3349,8 +3361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -4.0594, y: 0}
+  m_SizeDelta: {x: -18.1189, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2138523037
 GameObject:

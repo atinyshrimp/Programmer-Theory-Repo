@@ -65,33 +65,34 @@ public class NeedsController : MonoBehaviour
     {
         if (amount > 0) _lastGainedEnergy = DateTime.Now;
 
-        if (_energy > 0 && _energy <= 100)
-            _energy += amount;
+        if (_energy >= 0 && _energy <= 100) _energy += amount;
+        else if (_energy > 100) _energy = 100;
+        else _energy = 0;
     }
     public void UpdateFun(int amount)
     {
         if (amount > 0) _lastEntertained = DateTime.Now;
 
-        if (_fun > 0 && _fun <= 100)
-            _fun += amount;
+        if (_fun >= 0 && _fun <= 100) _fun += amount;
+        else if (_fun > 100) _fun = 100;
+        else _fun = 0;
     }
     public void UpdateHealth(int amount)
     {
         if (amount > 0) _lastHealthy = DateTime.Now;
 
-        if (_health > 0 && _health <= 100)
-            _health += amount;
-        else if (_health > 100)
-            _health = 100;
-        else PetManager.Die();
+        if (_health >= 0 && _health <= 100) _health += amount;
+        else if (_health > 100) _health = 100;
+        else _health = 0;
     }
 
     public void UpdateHunger(int amount)
     {
         if (amount > 0) _lastFed = DateTime.Now;
 
-        if (_hunger > 0 && _hunger <= 100)
-            _hunger += amount;
+        if (_hunger >= 0 && _hunger <= 100) _hunger += amount;
+        else if (_hunger > 100) _health = 100;
+        else _hunger = 0;
     }
 
     private void Awake()

@@ -19,6 +19,11 @@ public class PetManager : MonoBehaviour
     public Mood CurrentMood
     { get { return _currentMood; } }
 
+    public void Eat(Food food)
+    {
+        _needsScript.GetEffects(food);
+    }
+
     public void Sleep()
     {
         if (!_petAnimator.GetBool("isSleeping_b"))

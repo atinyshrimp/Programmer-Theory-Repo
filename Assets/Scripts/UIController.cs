@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private Slider _energySlider, _funSlider, _healthSlider, _hungerSlider;
     [SerializeField] private PetManager _petManager;
+    [SerializeField] private GameObject inventory;
 
     // maybe just take the NeedsController from the PetManager ?? it works :)
     private NeedsController _needsController;
@@ -15,6 +16,12 @@ public class UIController : MonoBehaviour
     {
         _petManager.Sleep();
         _needsController.ChangeTickRate("energy");
+    }
+
+    public void ToggleInventory()
+    {
+        if (inventory.activeInHierarchy) inventory.SetActive(false);
+        else inventory.SetActive(true);
     }
 
     private void Awake()

@@ -6,8 +6,11 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
+
+    // ENCAPSULATION
     [SerializeField] private List<Food> foods;
     public List<Food> Foods { get { return foods; } }
+
 
     private void Awake()
     {

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class NeedsController : MonoBehaviour
 {
+    #region Attributes
     // ENCAPSULATION
     [SerializeField] private int _fun, _energy, _hunger, _health;
     public int Fun { get { return _fun; } }
@@ -19,7 +20,7 @@ public class NeedsController : MonoBehaviour
     public DateTime LastFed { get { return _lastFed; } }
     public DateTime LastGainedEnergy { get { return _lastGainedEnergy; } }
     public DateTime LastHealthy { get { return _lastHealthy; } }
-
+    #endregion
 
     public void Initialize(int energy, int fun, int health, int hunger,
         int energyTickRate, int funTickRate, int hungerTickRate, int healthTickRate)
@@ -61,7 +62,16 @@ public class NeedsController : MonoBehaviour
         }
     }
 
-    public void UpdateEnergy(int amount)
+    public void GetEffects(Food food)
+    {
+        // ABSTRACTION
+        UpdateEnergy(food.Energy);
+        UpdateFun(food.Fun);
+        UpdateHealth(food.Health);
+        UpdateHunger(food.Hunger);
+    }
+
+    private void UpdateEnergy(int amount)
     {
         if (amount > 0) _lastGainedEnergy = DateTime.Now;
 
@@ -69,7 +79,8 @@ public class NeedsController : MonoBehaviour
         else if (_energy > 100) _energy = 100;
         else _energy = 0;
     }
-    public void UpdateFun(int amount)
+
+    private void UpdateFun(int amount)
     {
         if (amount > 0) _lastEntertained = DateTime.Now;
 
@@ -77,7 +88,8 @@ public class NeedsController : MonoBehaviour
         else if (_fun > 100) _fun = 100;
         else _fun = 0;
     }
-    public void UpdateHealth(int amount)
+        
+    private void UpdateHealth(int amount)
     {
         if (amount > 0) _lastHealthy = DateTime.Now;
 
@@ -86,7 +98,7 @@ public class NeedsController : MonoBehaviour
         else _health = 0;
     }
 
-    public void UpdateHunger(int amount)
+    private void UpdateHunger(int amount)
     {
         if (amount > 0) _lastFed = DateTime.Now;
 

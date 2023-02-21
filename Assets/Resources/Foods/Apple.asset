@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   name: Apple
-  icon: {fileID: -354624812, guid: 9a9e89696d282314893beaf0ca3f9b05, type: 3}
-  isDefaultItem: 0
+  _icon: {fileID: 1483218939, guid: 4675f260ebd507443833b5593d9570cb, type: 3}
+  _energy: 0
+  _fun: 0
+  _health: 0
+  _hunger: 3

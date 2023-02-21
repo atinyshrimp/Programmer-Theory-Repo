@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06238766c15e4e040a69e0895a0e2e02, type: 3}
-  m_Name: Raw Fish
+  m_Script: {fileID: 11500000, guid: c4ada76b2c972a543a03227d570d6ec9, type: 3}
+  m_Name: Chocolate
   m_EditorClassIdentifier: 
-  name: Raw Fish
-  _icon: {fileID: 720501599, guid: 4675f260ebd507443833b5593d9570cb, type: 3}
-  _energy: -5
+  name: Chocolate
+  _icon: {fileID: -157530840, guid: 4d47822bc4f4172498ab58d9267ad8e3, type: 3}
+  _energy: 0
   _fun: 0
-  _health: 15
-  _hunger: 1
+  _health: -500
+  _hunger: 0
+  _description: 

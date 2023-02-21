@@ -8,8 +8,8 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
 
     // ENCAPSULATION
-    [SerializeField] private List<Food> foods;
-    public List<Food> Foods { get { return foods; } }
+    [SerializeField] private List<Food> _foods;
+    public List<Food> Foods { get { return _foods; } }
 
 
     private void Awake()
@@ -17,11 +17,6 @@ public class Inventory : MonoBehaviour
         if (instance != null) return;
         instance = this;
 
-        foods = Resources.LoadAll<Food>("Foods").ToList();
-    }
-
-    private void Start()
-    {
-
+        _foods = Resources.LoadAll<Food>("Foods").ToList();
     }
 }

@@ -6,7 +6,7 @@ public class Food : ScriptableObject
     new public string name = "New Item";
 
     // ENCAPSULATION
-    [SerializeField] private Sprite _icon = null;
+    [SerializeField] private Sprite _icon;
     [SerializeField] private int _energy;
     [SerializeField] private int _fun;
     [SerializeField] private int _health;

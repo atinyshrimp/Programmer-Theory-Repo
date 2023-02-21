@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73e1633a3541454bb2ae90a1c53808a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9133736707250273612}
   angryIconSprite: {fileID: 1502526567, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
   boredIconSprite: {fileID: -1950128377, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
   happyIconSprite: {fileID: -1883369351, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
+  hungryIconSprite: {fileID: 1598329264, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
   sickIconSprite: {fileID: -1232452303, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
   scaredIconSprite: {fileID: -1422325753, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
+  sleepyIconSprite: {fileID: -1379227083, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
 --- !u!1 &9133736707786888553
 GameObject:
   m_ObjectHideFlags: 0

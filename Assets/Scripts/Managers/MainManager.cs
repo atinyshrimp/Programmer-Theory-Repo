@@ -10,8 +10,6 @@ public class MainManager : MonoBehaviour
     public static MainManager instance;
     public NeedsController needsController;
 
-    private string _petName;
-
     private void Awake()
     {
         if (instance == null)

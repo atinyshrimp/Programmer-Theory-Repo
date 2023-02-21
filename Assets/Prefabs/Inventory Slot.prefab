@@ -184,9 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7766f15dcb3ed2a41a4703312bcec528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
-  icon: {fileID: 8974154073012536857}
-  _petManager: {fileID: 0}
+  _food: {fileID: 0}
+  _icon: {fileID: 8974154073012536857}
 --- !u!1 &9155154597474647870
 GameObject:
   m_ObjectHideFlags: 0

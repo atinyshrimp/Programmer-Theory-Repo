@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2276396965151468065}
+  - component: {fileID: 423431620684657682}
   m_Layer: 5
   m_Name: Inventory Slot
   m_TagString: Untagged
@@ -145,7 +146,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963381750094276468}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -159,6 +160,20 @@ RectTransform:
   m_AnchoredPosition: {x: -289.63718, y: 69.52588}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &423431620684657682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963381750094276468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7766f15dcb3ed2a41a4703312bcec528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 0}
+  icon: {fileID: 8974154073012536857}
 --- !u!1 &9155154597474647870
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 665752703, guid: be4e996bcfe398241bba707f1877cc24, type: 3}
+  m_Sprite: {fileID: 2026755775, guid: 9a9e89696d282314893beaf0ca3f9b05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -33,6 +33,11 @@ public class EmoteBubble : MonoBehaviour
         Setup();
     }
 
+    private void Update()
+    {
+        Setup();
+    }
+
     private void Setup()
     {
         iconSprite.sprite = GetIconSprite(pet.CurrentMood);

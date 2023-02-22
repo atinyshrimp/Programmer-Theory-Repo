@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PetManager : MonoBehaviour
@@ -31,13 +29,27 @@ public class PetManager : MonoBehaviour
         else _petAnimator.SetBool("isSleeping_b", false);
     }
 
+    private void OnMouseDown()
+    {
+        _emoteBubblePrefab.SetActive(true);        
+    }
+
+    private void OnMouseExit()
+    {
+        _emoteBubblePrefab.SetActive(false);        
+    }
+
     // POLYMORPHISM
     void ChangeMood()
     {
         if (_needsScript.Energy < 25) ChangeMood(Mood.Sleepy);
+        else ChangeMood(Mood.Neutral);
         if (_needsScript.Fun < 40) ChangeMood(Mood.Bored);
+        else ChangeMood(Mood.Neutral);
         if (_needsScript.Health < 20) ChangeMood(Mood.Sick);
+        else ChangeMood(Mood.Neutral);
         if (_needsScript.Hunger < 35) ChangeMood(Mood.Hungry);
+        else ChangeMood(Mood.Neutral);
     }
 
     void ChangeMood(Mood mood)
@@ -52,12 +64,12 @@ public class PetManager : MonoBehaviour
 
     }
 
-    void DisplayBubble()
+/*    void DisplayBubble()
     {
         if (!_emoteBubblePrefab.activeInHierarchy) _emoteBubblePrefab.SetActive(true);
         else _emoteBubblePrefab.SetActive(false);
     }
-
+*/
     // Start is called before the first frame update
     void Start()
     {
@@ -70,10 +82,10 @@ public class PetManager : MonoBehaviour
     void Update()
     {
         ChangeMood();
-        if (Input.GetKeyDown(KeyCode.Space))
+/*        if (Input.GetKeyDown(KeyCode.Space))
         {
             // ABSTRACTION
             DisplayBubble();
         }
-    }
+*/    }
 }

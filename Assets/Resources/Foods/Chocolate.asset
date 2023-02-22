@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chocolate
   _icon: {fileID: -157530840, guid: 4d47822bc4f4172498ab58d9267ad8e3, type: 3}
-  _energy: 0
-  _fun: 0
+  _energy: -20
+  _fun: -10
   _health: -500
-  _hunger: 0
+  _hunger: 1
   _description: 

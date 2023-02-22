@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Raw Fish
   _icon: {fileID: 720501599, guid: 4675f260ebd507443833b5593d9570cb, type: 3}
-  _energy: -5
+  _energy: -2
   _fun: 0
-  _health: 15
+  _health: -4
   _hunger: 1

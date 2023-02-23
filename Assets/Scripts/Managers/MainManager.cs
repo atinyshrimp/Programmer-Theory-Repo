@@ -32,9 +32,9 @@ public class MainManager : MonoBehaviour
         _needsController = GameObject.Find("Cat").GetComponent<NeedsController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void GetCatName(string catName)
     {
+        _petName = catName;
     }
 
     private void OnLevelWasLoaded(int level)

@@ -46,6 +46,11 @@ public class UIController : MonoBehaviour
         StartCoroutine (CloseDescriptionBox());
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     public void Sleep()
     {
         _petManager.Sleep();

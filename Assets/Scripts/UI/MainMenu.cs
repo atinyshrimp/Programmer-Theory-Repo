@@ -31,7 +31,8 @@ public class MainMenu : MonoBehaviour
         inputField = GameObject.Find("InputField").GetComponent<TMP_InputField>();
         if (inputField.text != null)
         {
-            MainManager.instance.GetCatName(inputField.text);
+            string catName = char.ToUpper(inputField.text[0]) + inputField.text.Substring(1).ToLower();
+            MainManager.instance.GetCatName(catName);
             SceneManager.LoadScene("Main");
         }
     }

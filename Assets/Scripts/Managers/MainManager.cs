@@ -39,7 +39,7 @@ public class MainManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        _needsController = GameObject.Find("Cat").GetComponent<NeedsController>();        
+        if(level == 1) _needsController = GameObject.Find("Cat").GetComponent<NeedsController>();        
     }
 
     private void OnApplicationQuit()

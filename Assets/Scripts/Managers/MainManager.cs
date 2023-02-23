@@ -8,7 +8,11 @@ using System.IO;
 public class MainManager : MonoBehaviour
 {
     public static MainManager instance;
-    public NeedsController needsController;
+    [SerializeField] private NeedsController _needsController;
+    [SerializeField] private string _petName = "Kitty";
+
+    private Pet _pet;
+    public Pet CurrentPet { get { return _pet; } }
 
     private void Awake()
     {
@@ -16,6 +20,7 @@ public class MainManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            gameObject.GetComponent<MainManager>().enabled = true;
         }
         else
         {
@@ -23,13 +28,23 @@ public class MainManager : MonoBehaviour
             Debug.LogWarning("More than one MainManager in the scene");
             return;
         }
+
+        _needsController = GameObject.Find("Cat").GetComponent<NeedsController>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Pet pet = LoadPet();
-        if (pet != null) Debug.Log(LoadPet().Energy);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        _needsController = GameObject.Find("Cat").GetComponent<NeedsController>();        
+    }
+
+    private void OnApplicationQuit()
+    {
+        SavePet();
     }
 
     // Update is called once per frame
@@ -37,42 +52,49 @@ public class MainManager : MonoBehaviour
     {
         if (Timer.GameHourTimer < 0)
         {
-            Pet pet = new Pet(needsController.LastEntertained, needsController.LastFed, needsController.LastGainedEnergy, needsController.LastHealthy,
-                needsController.Energy, needsController.Fun, needsController.Health, needsController.Hunger);
-            SavePet(pet);
+            _pet = new Pet(_petName, _needsController.Energy, _needsController.Fun, _needsController.Health, _needsController.Hunger);
         }
     }
 
     [System.Serializable]
-    class SaveData
+    public class Pet
     {
+        public string petName;
+        public int energy, fun, health, hunger;
 
-    }
-
-    void LoadInfo<T>(string name, System.Action<T> callback)
-    {
-        string path = Application.dataPath + "/Saves/";
-        if (File.Exists(path + name + ".json"))
+        public Pet(string petName, int energy, int fun, int health, int hunger)
         {
-            string loadedJson = File.ReadAllText(path + name + ".json");
-            callback(JsonUtility.FromJson<T>(loadedJson));
+            this.petName = petName;
+            this.energy = energy;
+            this.fun = fun;
+            this.health = health;
+            this.hunger = hunger;
         }
-        else Debug.Log("File doesn't exist");
     }
 
-    public Pet LoadPet()
+    public bool LoadPet()
     {
-        Pet returnValue = null;
-        LoadInfo<Pet>("pet", (pet) =>
+        string path = Application.dataPath + $"/Saves/{_petName}.json";
+        bool res = false;
+        if (File.Exists(path))
         {
-            returnValue = pet;
-        });
-        return returnValue;
+            res = true;
+
+            string json = File.ReadAllText(path);
+            _pet = JsonUtility.FromJson<Pet>(json);
+        }
+        return res;
     }
 
-    void SavePet(Pet pet)
+    public void SavePet()
     {
-        SaveInfo("pet", pet);
+        Pet toSave = new Pet(_petName, _needsController.Energy, _needsController.Fun, _needsController.Health, _needsController.Hunger);
+        string json = JsonUtility.ToJson(toSave);
+        string path = Application.dataPath + $"/Saves/{toSave.petName}.json";
+        Debug.Log(path);
+        File.WriteAllText(path, json);
+
+        // SaveInfo("pet", pet);
     }
 
     void SaveInfo<SaveData>(string name, SaveData saveData)

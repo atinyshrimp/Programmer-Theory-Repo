@@ -110,7 +110,10 @@ public class NeedsController : MonoBehaviour
     private void Awake()
     {
         _petManager = GetComponent<PetManager>();
-        Initialize(100, 100, 100, 100, 1, 2, 5, 1);
+        MainManager mainManager = MainManager.instance;
+        if (mainManager.LoadPet()) Initialize(mainManager.CurrentPet.energy, mainManager.CurrentPet.fun, mainManager.CurrentPet.health, mainManager.CurrentPet.hunger,
+                                                1, 2, 5, 1);
+        else Initialize(100, 100, 100, 100, 1, 2, 5, 1);
     }
 
     // Update is called once per frame
@@ -122,6 +125,8 @@ public class NeedsController : MonoBehaviour
             UpdateFun(-_funTickRate);
             UpdateHealth(-_healthTickRate);
             UpdateHunger(-_hungerTickRate);
+
+            MainManager.instance.SavePet();
         }
     }
 }

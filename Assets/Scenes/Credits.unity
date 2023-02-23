@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<SIZE=100><B>TITLE</B>\r</SIZE>\n\r<SIZE=45>A pet simulator game by <I>atinyzen</I></SIZE>\r\n\r\n\n<SIZE=80><B>ASSETS 
+  m_text: "<SIZE=100><B>CatSim</B>\r</SIZE>\n\r<SIZE=45>A pet simulator game by <I>atinyzen</I></SIZE>\r\n\r\n\n<SIZE=80><B>ASSETS 
     USED</B>\r</SIZE>\r\n\n<SIZE=60>-- GRAPHICS--</SIZE>\r\n\n\r<SIZE=30>2D PIXEL
     ART CAT SPRITES\r\n<I>BY ELTHEN'S PIXEL ART SHOP</I></SIZE>\r\n\n<SIZE=30>BUBBLE
     EMOTES\n<I>BY  KICKED-IN-TEETH</I></SIZE>\r\n\n<SIZE=30>FLAT NIGHT BACKGROUND\n<I>BY 

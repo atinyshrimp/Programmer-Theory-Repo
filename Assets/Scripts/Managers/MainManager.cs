@@ -10,6 +10,7 @@ public class MainManager : MonoBehaviour
     public static MainManager instance;
     [SerializeField] private NeedsController _needsController;
     [SerializeField] private string _petName = "Kitty";
+    public string PetName { get { return _petName; } }
 
     private Pet _pet;
     public Pet CurrentPet { get { return _pet; } }
@@ -96,12 +97,4 @@ public class MainManager : MonoBehaviour
 
         // SaveInfo("pet", pet);
     }
-
-    void SaveInfo<SaveData>(string name, SaveData saveData)
-    {
-        string path = Application.dataPath + "/Saves/";
-        string jsonToSave = JsonUtility.ToJson(saveData);
-        File.WriteAllText(path + name + ".json", jsonToSave);
-    }
-
 }

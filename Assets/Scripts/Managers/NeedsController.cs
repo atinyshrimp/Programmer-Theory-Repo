@@ -4,6 +4,7 @@ using UnityEngine;
 public class NeedsController : MonoBehaviour
 {
     #region Attributes
+
     // ENCAPSULATION
     [SerializeField] private int _fun, _energy, _hunger, _health;
     public int Fun { get { return _fun; } }
@@ -15,11 +16,6 @@ public class NeedsController : MonoBehaviour
 
     private int _funTickRate, _energyTickRate, _hungerTickRate, _healthTickRate;
 
-    private DateTime _lastEntertained, _lastFed, _lastGainedEnergy, _lastHealthy;
-    public DateTime LastEntertained { get { return _lastEntertained; } }
-    public DateTime LastFed { get { return _lastFed; } }
-    public DateTime LastGainedEnergy { get { return _lastGainedEnergy; } }
-    public DateTime LastHealthy { get { return _lastHealthy; } }
     #endregion
 
     public void Initialize(int energy, int fun, int health, int hunger,
@@ -34,11 +30,6 @@ public class NeedsController : MonoBehaviour
         _funTickRate = funTickRate;
         _healthTickRate = healthTickRate;
         _hungerTickRate = hungerTickRate;
-
-        _lastEntertained = DateTime.Now;
-        _lastFed = DateTime.Now;
-        _lastGainedEnergy = DateTime.Now;
-        _lastHealthy = DateTime.Now;
     }
 
     public void ChangeTickRate(string mode)
@@ -73,38 +64,30 @@ public class NeedsController : MonoBehaviour
 
     private void UpdateEnergy(int amount)
     {
-        if (amount > 0) _lastGainedEnergy = DateTime.Now;
-
-        if (_energy >= 0 && _energy <= 100) _energy += amount;
-        else if (_energy > 100) _energy = 100;
-        else _energy = 0;
+        if (_energy > 100) _energy = 100;
+        else if (_energy < 0) _energy = 0;
+        else _energy += amount;
     }
 
     private void UpdateFun(int amount)
     {
-        if (amount > 0) _lastEntertained = DateTime.Now;
-
-        if (_fun >= 0 && _fun <= 100) _fun += amount;
-        else if (_fun > 100) _fun = 100;
-        else _fun = 0;
+        if (_fun > 100) _fun = 100;
+        else if (_fun < 0) _fun = 0;
+        else _fun += amount;
     }
         
     private void UpdateHealth(int amount)
     {
-        if (amount > 0) _lastHealthy = DateTime.Now;
-
-        if (_health >= 0 && _health <= 100) _health += amount;
-        else if (_health > 100) _health = 100;
-        else _health = 0;
+        if (_health > 100) _health = 100;
+        else if (_health < 0) _health = 0;
+        else _health += amount;
     }
 
     private void UpdateHunger(int amount)
     {
-        if (amount > 0) _lastFed = DateTime.Now;
-
-        if (_hunger >= 0 && _hunger <= 100) _hunger += amount;
-        else if (_hunger > 100) _health = 100;
-        else _hunger = 0;
+        if (_hunger > 100) _hunger = 100;
+        else if (_hunger < 0) _hunger = 0;
+        else _hunger += amount;
     }
 
     private void Awake()

@@ -2731,6 +2731,9 @@ MonoBehaviour:
   titleScreen: {fileID: 0}
   nameScreen: {fileID: 0}
   inputField: {fileID: 0}
+  cancelClip: {fileID: 0}
+  confirmClip: {fileID: 0}
+  menuSelection: {fileID: 0}
 --- !u!1 &1941447345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3121,9 @@ MonoBehaviour:
   titleScreen: {fileID: 72728527}
   nameScreen: {fileID: 804969207}
   inputField: {fileID: 0}
+  cancelClip: {fileID: 8300000, guid: 4b30fd9d82ebd1d47b27ef8391884000, type: 3}
+  confirmClip: {fileID: 8300000, guid: 1c53a4879c3976b48ab613d38aaa7b0a, type: 3}
+  menuSelection: {fileID: 8300000, guid: ca08bf3b06b07344dbfa24db1af4c403, type: 3}
 --- !u!1 &2068745802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,7 +3253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2106352552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2002897289}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2106352552
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7766f15dcb3ed2a41a4703312bcec528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _food: {fileID: 0}
   _icon: {fileID: 8974154073012536857}
+  _clip: {fileID: 8300000, guid: ca08bf3b06b07344dbfa24db1af4c403, type: 3}
 --- !u!1 &9155154597474647870
 GameObject:
   m_ObjectHideFlags: 0

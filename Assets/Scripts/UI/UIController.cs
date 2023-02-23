@@ -10,8 +10,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _inventory;
     [SerializeField] private GameObject descriptionBox;
 
-    // maybe just take the NeedsController from the PetManager ?? it works :)
+    [SerializeField] private AudioClip _openMenu;
+    [SerializeField] private AudioClip _closeMenu;
+    [SerializeField] private AudioClip _menuSelection;
+
     private NeedsController _needsController;
+    [SerializeField] private AudioSource _audioSource;
 
     public void DisplayFoodInfo(Food food)
     {
@@ -36,11 +40,23 @@ public class UIController : MonoBehaviour
 
     public void DisplayInfo(string mode="sleeping")
     {
+        Image descriptionBg = descriptionBox.GetComponent<Image>();
         TMP_Text descriptionText = descriptionBox.GetComponentInChildren<TMP_Text>();
+        descriptionBg.color = Color.white;
+        descriptionText.color = Color.black;
+        
+        switch (mode)
+        {
+            case "sleeping":
+                descriptionText.text = "Your cat is sleeping, you can't feed it..";
+                break;
+            case "full":
+                descriptionText.text = $"{MainManager.instance.PetName} is full, wait a little bit before trying to feed it again :)";
+                break;
+        }
+
         if (mode == "sleeping")
         {
-            descriptionText.text = "Your cat is sleeping, you can't feed it..";
-
         }
         descriptionBox.SetActive(true);
         StartCoroutine (CloseDescriptionBox());
@@ -48,24 +64,35 @@ public class UIController : MonoBehaviour
 
     public void Quit()
     {
+        _audioSource.PlayOneShot(_menuSelection, 1f);
         Application.Quit();
     }
 
     public void Sleep()
     {
+        _audioSource.PlayOneShot(_menuSelection, 1f);
         _petManager.Sleep();
         _needsController.ChangeTickRate("energy");
     }
 
     public void ToggleInventory()
     {
-        if (_inventory.activeInHierarchy) _inventory.SetActive(false);
-        else _inventory.SetActive(true);
+        if (_inventory.activeInHierarchy)
+        {
+            _audioSource.PlayOneShot(_closeMenu, 1f);
+            _inventory.SetActive(false);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(_openMenu, 1f);
+            _inventory.SetActive(true);
+        }
     }
 
     private void Awake()
     {
         _needsController = _petManager.GetComponent<NeedsController>();
+        _audioSource = Camera.main.GetComponent<AudioSource>();        
     }
 
     IEnumerator CloseDescriptionBox()

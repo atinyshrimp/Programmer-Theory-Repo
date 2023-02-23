@@ -12,6 +12,7 @@ public class PetManager : MonoBehaviour
     public Animator PetAnimator { get { return _petAnimator; } }
 
     private NeedsController _needsScript;
+    public bool isFull = false;
 
     private Mood _currentMood;
     public Mood CurrentMood
@@ -62,17 +63,7 @@ public class PetManager : MonoBehaviour
 
     // end of POLYMORPHISM
 
-    public static void Die()
-    {
 
-    }
-
-/*    void DisplayBubble()
-    {
-        if (!_emoteBubblePrefab.activeInHierarchy) _emoteBubblePrefab.SetActive(true);
-        else _emoteBubblePrefab.SetActive(false);
-    }
-*/
     // Start is called before the first frame update
     void Start()
     {
@@ -85,10 +76,7 @@ public class PetManager : MonoBehaviour
     void Update()
     {
         ChangeMood();
-/*        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // ABSTRACTION
-            DisplayBubble();
-        }
-*/    }
+        if (_needsScript.Hunger >= 100) isFull = true;
+        else isFull = false;
+    }
 }

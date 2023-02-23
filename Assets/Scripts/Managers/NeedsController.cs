@@ -124,7 +124,4 @@ public class NeedsController : MonoBehaviour
             UpdateHunger(-_hungerTickRate);
         }
     }
-
-
-
 }

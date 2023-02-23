@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 // INHERITANCE
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Special Food")]
 public class SpecialFood : Food
 {
+    public enum TypeOfFood { Healthy, NotHealthy }
+
     [SerializeField] private string _description;
+    public string Description { get { return _description; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    [SerializeField] private TypeOfFood _typeOfFood;
+    public TypeOfFood Type { get { return _typeOfFood; } }
 
-    // Update is called once per frame
-    void Update()
+
+    public override string Info()
     {
-        
+        return _description;
     }
 }

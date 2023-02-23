@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4ada76b2c972a543a03227d570d6ec9, type: 3}
   m_Name: Chocolate
@@ -18,4 +18,6 @@ MonoBehaviour:
   _fun: -10
   _health: -500
   _hunger: 1
-  _description: 
+  _controller: {fileID: 0}
+  _description: Oh no ! You gave chocolate to the cat, seems like it got it sick..
+  _typeOfFood: 1

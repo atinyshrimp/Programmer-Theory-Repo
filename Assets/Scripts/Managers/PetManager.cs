@@ -17,6 +17,7 @@ public class PetManager : MonoBehaviour
     public Mood CurrentMood
     { get { return _currentMood; } }
 
+
     public void Eat(Food food)
     {
         _needsScript.GetEffects(food);
@@ -24,8 +25,7 @@ public class PetManager : MonoBehaviour
 
     public void Sleep()
     {
-        if (!_petAnimator.GetBool("isSleeping_b"))
-            _petAnimator.SetBool("isSleeping_b", true);
+        if (!_petAnimator.GetBool("isSleeping_b")) _petAnimator.SetBool("isSleeping_b", true);
         else _petAnimator.SetBool("isSleeping_b", false);
     }
 
@@ -43,13 +43,16 @@ public class PetManager : MonoBehaviour
     void ChangeMood()
     {
         if (_needsScript.Energy < 25) ChangeMood(Mood.Sleepy);
-        else ChangeMood(Mood.Neutral);
+        else if (_currentMood == Mood.Sleepy) ChangeMood(Mood.Neutral);
+
         if (_needsScript.Fun < 40) ChangeMood(Mood.Bored);
-        else ChangeMood(Mood.Neutral);
-        if (_needsScript.Health < 20) ChangeMood(Mood.Sick);
-        else ChangeMood(Mood.Neutral);
+        else if (_currentMood == Mood.Bored) ChangeMood(Mood.Neutral);
+
         if (_needsScript.Hunger < 35) ChangeMood(Mood.Hungry);
-        else ChangeMood(Mood.Neutral);
+        else if (_currentMood == Mood.Hungry) ChangeMood(Mood.Neutral);
+
+        if (_needsScript.Health < 20) ChangeMood(Mood.Sick);
+        else if (_currentMood == Mood.Sick) ChangeMood(Mood.Neutral);
     }
 
     void ChangeMood(Mood mood)

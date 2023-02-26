@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter text...
+  m_text: Choose a lovely name :)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7596e36ecb1327e4d99b1d0e2f52994b, type: 2}
   m_sharedMaterial: {fileID: -7888603342803645207, guid: 7596e36ecb1327e4d99b1d0e2f52994b, type: 2}

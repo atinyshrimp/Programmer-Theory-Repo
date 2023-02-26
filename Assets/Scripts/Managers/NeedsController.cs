@@ -96,7 +96,7 @@ public class NeedsController : MonoBehaviour
         MainManager mainManager = MainManager.instance;
         if (mainManager.LoadPet()) Initialize(mainManager.CurrentPet.energy, mainManager.CurrentPet.fun, mainManager.CurrentPet.health, mainManager.CurrentPet.hunger,
                                                 1, 2, 5, 1);
-        else Initialize(100, 100, 100, 100, 1, 2, 5, 1);
+        else Initialize(100, 100, 75, 100, 1, 2, 5, 1);
     }
 
     // Update is called once per frame
